@@ -33,6 +33,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C70E91F275F9A91007EFF91 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8CFF5E18275F80D000C71B9B /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8C70E920275F9AB7007EFF91 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		8C70E921275F9AE5007EFF91 /* Presintation */ = {
+			isa = PBXGroup;
+			children = (
+				8CFF5E1E275F80D100C71B9B /* Main.storyboard */,
+				8CFF5E1A275F80D000C71B9B /* ViewController.swift */,
+			);
+			path = Presintation;
+			sourceTree = "<group>";
+		};
+		8C70E922275F9AFD007EFF91 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8CFF5E21275F80D100C71B9B /* MacSorted.entitlements */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8C70E923275F9B1B007EFF91 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8CFF5E1C275F80D100C71B9B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		8CFF5E0C275F80D000C71B9B = {
 			isa = PBXGroup;
 			children = (
@@ -52,11 +92,11 @@
 		8CFF5E17275F80D000C71B9B /* MacSorted */ = {
 			isa = PBXGroup;
 			children = (
-				8CFF5E18275F80D000C71B9B /* AppDelegate.swift */,
-				8CFF5E1A275F80D000C71B9B /* ViewController.swift */,
-				8CFF5E1C275F80D100C71B9B /* Assets.xcassets */,
-				8CFF5E1E275F80D100C71B9B /* Main.storyboard */,
-				8CFF5E21275F80D100C71B9B /* MacSorted.entitlements */,
+				8C70E91F275F9A91007EFF91 /* Application */,
+				8C70E920275F9AB7007EFF91 /* Business */,
+				8C70E921275F9AE5007EFF91 /* Presintation */,
+				8C70E923275F9B1B007EFF91 /* Resources */,
+				8C70E922275F9AFD007EFF91 /* Supporting Files */,
 			);
 			path = MacSorted;
 			sourceTree = "<group>";
