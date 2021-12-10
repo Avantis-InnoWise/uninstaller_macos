@@ -701,18 +701,91 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--MainVC-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="MacSorted" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController id="XfG-lQ-9wD" customClass="MainVC" customModule="MacSorted" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" appearanceType="darkAqua" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="660" height="433"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="GaD-4e-8pz">
+                                <rect key="frame" x="0.0" y="0.0" width="660" height="433"/>
+                                <view key="contentView" id="ROt-R4-4B6">
+                                    <rect key="frame" x="0.0" y="0.0" width="660" height="433"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="fillColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </box>
+                            <customView appearanceType="darkAqua" translatesAutoresizingMaskIntoConstraints="NO" id="2WI-T8-WES">
+                                <rect key="frame" x="16" y="373" width="628" height="40"/>
+                                <subviews>
+                                    <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5l-im-dts">
+                                        <rect key="frame" x="0.0" y="0.0" width="628" height="40"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YXs-y8-7bO" customClass="SectionButtons" customModule="MacSorted" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="e81-QG-kb6"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" title="App Uninstaller" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="ZYZ-FS-c6M">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system" size="15"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="uninstallerWastapped:" target="XfG-lQ-9wD" id="Hb0-YS-aZ5"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h45-vz-Yva" customClass="SectionButtons" customModule="MacSorted" customModuleProvider="target">
+                                                <rect key="frame" x="314" y="0.0" width="314" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="05S-tP-Fyd"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" title="File Deleter" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="pJ5-z9-cfG">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system" size="15"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="uninstallerWastapped:" target="XfG-lQ-9wD" id="QDH-fJ-r89"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="n5l-im-dts" secondAttribute="bottom" id="L2H-vu-dOA"/>
+                                    <constraint firstItem="n5l-im-dts" firstAttribute="top" secondItem="2WI-T8-WES" secondAttribute="top" id="WbB-MR-xsd"/>
+                                    <constraint firstItem="n5l-im-dts" firstAttribute="leading" secondItem="2WI-T8-WES" secondAttribute="leading" id="Y4e-bQ-twb"/>
+                                    <constraint firstAttribute="trailing" secondItem="n5l-im-dts" secondAttribute="trailing" id="tMo-YX-wX8"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="GaD-4e-8pz" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="FOs-C5-C4o"/>
+                            <constraint firstItem="2WI-T8-WES" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="16" id="K4e-vC-hrB"/>
+                            <constraint firstAttribute="trailing" secondItem="2WI-T8-WES" secondAttribute="trailing" constant="16" id="Qfa-RN-lHQ"/>
+                            <constraint firstAttribute="bottom" secondItem="GaD-4e-8pz" secondAttribute="bottom" id="ef5-CE-XD9"/>
+                            <constraint firstAttribute="trailing" secondItem="GaD-4e-8pz" secondAttribute="trailing" id="ehx-f0-ut4"/>
+                            <constraint firstItem="2WI-T8-WES" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="vrq-HO-3t5"/>
+                            <constraint firstItem="GaD-4e-8pz" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="y2E-N9-jXE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fileDeleterButton" destination="h45-vz-Yva" id="aCF-WF-rga"/>
+                        <outlet property="uninstallerButton" destination="YXs-y8-7bO" id="9fe-O6-abw"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="105" y="800.5"/>
         </scene>
     </scenes>
 </document>

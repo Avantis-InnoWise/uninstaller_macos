@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C70E9252761F78E007EFF91 /* SectionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70E9242761F78E007EFF91 /* SectionButtons.swift */; };
 		8CFF5E19275F80D000C71B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF5E18275F80D000C71B9B /* AppDelegate.swift */; };
-		8CFF5E1B275F80D000C71B9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF5E1A275F80D000C71B9B /* ViewController.swift */; };
+		8CFF5E1B275F80D000C71B9B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF5E1A275F80D000C71B9B /* MainVC.swift */; };
 		8CFF5E1D275F80D100C71B9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CFF5E1C275F80D100C71B9B /* Assets.xcassets */; };
 		8CFF5E20275F80D100C71B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFF5E1E275F80D100C71B9B /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C70E9242761F78E007EFF91 /* SectionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionButtons.swift; sourceTree = "<group>"; };
 		8CFF5E15275F80D000C71B9B /* MacSorted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacSorted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CFF5E18275F80D000C71B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8CFF5E1A275F80D000C71B9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8CFF5E1A275F80D000C71B9B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		8CFF5E1C275F80D100C71B9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CFF5E1F275F80D100C71B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8CFF5E21275F80D100C71B9B /* MacSorted.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacSorted.entitlements; sourceTree = "<group>"; };
@@ -51,8 +53,8 @@
 		8C70E921275F9AE5007EFF91 /* Presintation */ = {
 			isa = PBXGroup;
 			children = (
-				8CFF5E1E275F80D100C71B9B /* Main.storyboard */,
-				8CFF5E1A275F80D000C71B9B /* ViewController.swift */,
+				8C70E92927623A40007EFF91 /* Common */,
+				8C70E92A27624914007EFF91 /* Main */,
 			);
 			path = Presintation;
 			sourceTree = "<group>";
@@ -71,6 +73,31 @@
 				8CFF5E1C275F80D100C71B9B /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		8C70E9262761F7A9007EFF91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8C70E9242761F78E007EFF91 /* SectionButtons.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8C70E92927623A40007EFF91 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8C70E9262761F7A9007EFF91 /* Views */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8C70E92A27624914007EFF91 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8CFF5E1A275F80D000C71B9B /* MainVC.swift */,
+				8CFF5E1E275F80D100C71B9B /* Main.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		8CFF5E0C275F80D000C71B9B = {
@@ -171,7 +198,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CFF5E1B275F80D000C71B9B /* ViewController.swift in Sources */,
+				8CFF5E1B275F80D000C71B9B /* MainVC.swift in Sources */,
+				8C70E9252761F78E007EFF91 /* SectionButtons.swift in Sources */,
 				8CFF5E19275F80D000C71B9B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +343,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MacSorted/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -340,6 +369,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MacSorted/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
