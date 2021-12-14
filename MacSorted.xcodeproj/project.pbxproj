@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C38B7562767417A0042B27E /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C38B7552767417A0042B27E /* SearchField.swift */; };
+		8C38B758276760560042B27E /* SelectAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C38B757276760560042B27E /* SelectAllButton.swift */; };
+		8C38B75A276761770042B27E /* UninstallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C38B759276761770042B27E /* UninstallButton.swift */; };
+		8C38B75D27678A270042B27E /* GradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C38B75C27678A270042B27E /* GradientLayer.swift */; };
 		8C70E9252761F78E007EFF91 /* SectionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70E9242761F78E007EFF91 /* SectionButtons.swift */; };
 		8CFF5E19275F80D000C71B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF5E18275F80D000C71B9B /* AppDelegate.swift */; };
 		8CFF5E1B275F80D000C71B9B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF5E1A275F80D000C71B9B /* MainVC.swift */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C38B7552767417A0042B27E /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
+		8C38B757276760560042B27E /* SelectAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAllButton.swift; sourceTree = "<group>"; };
+		8C38B759276761770042B27E /* UninstallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstallButton.swift; sourceTree = "<group>"; };
+		8C38B75C27678A270042B27E /* GradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLayer.swift; sourceTree = "<group>"; };
 		8C70E9242761F78E007EFF91 /* SectionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionButtons.swift; sourceTree = "<group>"; };
 		8CFF5E15275F80D000C71B9B /* MacSorted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacSorted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CFF5E18275F80D000C71B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C38B75B276789FE0042B27E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8C38B75C27678A270042B27E /* GradientLayer.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		8C70E91F275F9A91007EFF91 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				8C70E9242761F78E007EFF91 /* SectionButtons.swift */,
+				8C38B7552767417A0042B27E /* SearchField.swift */,
+				8C38B757276760560042B27E /* SelectAllButton.swift */,
+				8C38B759276761770042B27E /* UninstallButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -79,6 +98,7 @@
 		8C70E92927623A40007EFF91 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8C38B75B276789FE0042B27E /* Extension */,
 				8C70E9262761F7A9007EFF91 /* Views */,
 			);
 			path = Common;
@@ -198,8 +218,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C38B75A276761770042B27E /* UninstallButton.swift in Sources */,
 				8CFF5E1B275F80D000C71B9B /* MainVC.swift in Sources */,
+				8C38B75D27678A270042B27E /* GradientLayer.swift in Sources */,
 				8C70E9252761F78E007EFF91 /* SectionButtons.swift in Sources */,
+				8C38B7562767417A0042B27E /* SearchField.swift in Sources */,
+				8C38B758276760560042B27E /* SelectAllButton.swift in Sources */,
 				8CFF5E19275F80D000C71B9B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

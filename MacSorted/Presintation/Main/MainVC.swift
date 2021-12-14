@@ -5,6 +5,11 @@ final class MainVC: NSViewController {
     @IBOutlet private weak var uninstallerButton: SectionButtons!
     @IBOutlet private weak var fileDeleterButton: SectionButtons!
     
+    @IBOutlet weak var searchField: SearchField!
+    
+    @IBOutlet weak var selectAllButton: SelectAllButton!
+    
+    @IBOutlet weak var uninstallButton: UninstallButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
