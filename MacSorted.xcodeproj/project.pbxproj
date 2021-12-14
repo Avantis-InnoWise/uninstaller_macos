@@ -43,13 +43,6 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		8C70E920275F9AB7007EFF91 /* Business */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Business;
-			sourceTree = "<group>";
-		};
 		8C70E921275F9AE5007EFF91 /* Presintation */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,12 +113,19 @@
 			isa = PBXGroup;
 			children = (
 				8C70E91F275F9A91007EFF91 /* Application */,
-				8C70E920275F9AB7007EFF91 /* Business */,
+				D1C6ECB727687754003D1404 /* Business */,
 				8C70E921275F9AE5007EFF91 /* Presintation */,
 				8C70E923275F9B1B007EFF91 /* Resources */,
 				8C70E922275F9AFD007EFF91 /* Supporting Files */,
 			);
 			path = MacSorted;
+			sourceTree = "<group>";
+		};
+		D1C6ECB727687754003D1404 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Business;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,7 +343,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MacSorted/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -369,7 +368,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MacSorted/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
