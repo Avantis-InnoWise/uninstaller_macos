@@ -7,29 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C38B7562767417A0042B27E /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C38B7552767417A0042B27E /* SearchField.swift */; };
-		8C38B758276760560042B27E /* SelectAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C38B757276760560042B27E /* SelectAllButton.swift */; };
-		8C38B75A276761770042B27E /* UninstallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C38B759276761770042B27E /* UninstallButton.swift */; };
-		8C38B75D27678A270042B27E /* GradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C38B75C27678A270042B27E /* GradientLayer.swift */; };
-		8C70E9252761F78E007EFF91 /* SectionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70E9242761F78E007EFF91 /* SectionButtons.swift */; };
+		8C38B758276760560042B27E /* BorderedRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C38B757276760560042B27E /* BorderedRoundedButton.swift */; };
+		8C70E9252761F78E007EFF91 /* SectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70E9242761F78E007EFF91 /* SectionButton.swift */; };
 		8CFF5E19275F80D000C71B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF5E18275F80D000C71B9B /* AppDelegate.swift */; };
 		8CFF5E1B275F80D000C71B9B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF5E1A275F80D000C71B9B /* MainVC.swift */; };
 		8CFF5E1D275F80D100C71B9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CFF5E1C275F80D100C71B9B /* Assets.xcassets */; };
 		8CFF5E20275F80D100C71B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFF5E1E275F80D100C71B9B /* Main.storyboard */; };
+		D18A304E2769F00100996221 /* NSButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A304D2769F00100996221 /* NSButton+Extension.swift */; };
+		D18A30502769F1DC00996221 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A304F2769F1DC00996221 /* GradientButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8C38B7552767417A0042B27E /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
-		8C38B757276760560042B27E /* SelectAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAllButton.swift; sourceTree = "<group>"; };
-		8C38B759276761770042B27E /* UninstallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstallButton.swift; sourceTree = "<group>"; };
-		8C38B75C27678A270042B27E /* GradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLayer.swift; sourceTree = "<group>"; };
-		8C70E9242761F78E007EFF91 /* SectionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionButtons.swift; sourceTree = "<group>"; };
+		8C38B757276760560042B27E /* BorderedRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedRoundedButton.swift; sourceTree = "<group>"; };
+		8C70E9242761F78E007EFF91 /* SectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionButton.swift; sourceTree = "<group>"; };
 		8CFF5E15275F80D000C71B9B /* MacSorted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacSorted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CFF5E18275F80D000C71B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CFF5E1A275F80D000C71B9B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		8CFF5E1C275F80D100C71B9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CFF5E1F275F80D100C71B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8CFF5E21275F80D100C71B9B /* MacSorted.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacSorted.entitlements; sourceTree = "<group>"; };
+		D18A304D2769F00100996221 /* NSButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton+Extension.swift"; sourceTree = "<group>"; };
+		D18A304F2769F1DC00996221 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +44,7 @@
 		8C38B75B276789FE0042B27E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				8C38B75C27678A270042B27E /* GradientLayer.swift */,
+				D18A304D2769F00100996221 /* NSButton+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -87,10 +85,9 @@
 		8C70E9262761F7A9007EFF91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8C70E9242761F78E007EFF91 /* SectionButtons.swift */,
-				8C38B7552767417A0042B27E /* SearchField.swift */,
-				8C38B757276760560042B27E /* SelectAllButton.swift */,
-				8C38B759276761770042B27E /* UninstallButton.swift */,
+				8C38B757276760560042B27E /* BorderedRoundedButton.swift */,
+				D18A304F2769F1DC00996221 /* GradientButton.swift */,
+				8C70E9242761F78E007EFF91 /* SectionButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,12 +215,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C38B75A276761770042B27E /* UninstallButton.swift in Sources */,
+				D18A30502769F1DC00996221 /* GradientButton.swift in Sources */,
 				8CFF5E1B275F80D000C71B9B /* MainVC.swift in Sources */,
-				8C38B75D27678A270042B27E /* GradientLayer.swift in Sources */,
-				8C70E9252761F78E007EFF91 /* SectionButtons.swift in Sources */,
-				8C38B7562767417A0042B27E /* SearchField.swift in Sources */,
-				8C38B758276760560042B27E /* SelectAllButton.swift in Sources */,
+				8C70E9252761F78E007EFF91 /* SectionButton.swift in Sources */,
+				8C38B758276760560042B27E /* BorderedRoundedButton.swift in Sources */,
+				D18A304E2769F00100996221 /* NSButton+Extension.swift in Sources */,
 				8CFF5E19275F80D000C71B9B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
