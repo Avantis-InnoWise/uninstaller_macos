@@ -1,6 +1,6 @@
 import Cocoa
 
-final class GradientButton: BorderedRoundedButton {
+class GradientButton: BorderedRoundedButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         layer?.backgroundColor = NSColor.white.cgColor
