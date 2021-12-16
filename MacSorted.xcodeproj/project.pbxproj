@@ -15,6 +15,7 @@
 		8CFF5E20275F80D100C71B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFF5E1E275F80D100C71B9B /* Main.storyboard */; };
 		D18A304E2769F00100996221 /* NSButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A304D2769F00100996221 /* NSButton+Extension.swift */; };
 		D18A30502769F1DC00996221 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A304F2769F1DC00996221 /* GradientButton.swift */; };
+		D1A53E34276B405D0048027A /* AppsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A53E33276B405D0048027A /* AppsListItem.swift */; };
 		D1D2E296276A180A00447672 /* UninstallerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D2E295276A180A00447672 /* UninstallerVC.swift */; };
 		D1D2E29A276A24E300447672 /* AppTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D2E299276A24E300447672 /* AppTableCellView.swift */; };
 		D1D2E29D276A258400447672 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D2E29C276A258400447672 /* App.swift */; };
@@ -33,6 +34,7 @@
 		8CFF5E21275F80D100C71B9B /* MacSorted.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacSorted.entitlements; sourceTree = "<group>"; };
 		D18A304D2769F00100996221 /* NSButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton+Extension.swift"; sourceTree = "<group>"; };
 		D18A304F2769F1DC00996221 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		D1A53E33276B405D0048027A /* AppsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsListItem.swift; sourceTree = "<group>"; };
 		D1D2E295276A180A00447672 /* UninstallerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstallerVC.swift; sourceTree = "<group>"; };
 		D1D2E299276A24E300447672 /* AppTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableCellView.swift; sourceTree = "<group>"; };
 		D1D2E29C276A258400447672 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 			path = MacSorted;
 			sourceTree = "<group>";
 		};
+		D1A53E32276B403A0048027A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1A53E33276B405D0048027A /* AppsListItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D1C6ECB727687754003D1404 /* Business */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 		D1D2E294276A17E800447672 /* Uninstaller */ = {
 			isa = PBXGroup;
 			children = (
+				D1A53E32276B403A0048027A /* Model */,
 				D1D2E297276A248F00447672 /* Cell */,
 				D1D2E295276A180A00447672 /* UninstallerVC.swift */,
 			);
@@ -270,6 +281,7 @@
 				8C70E9252761F78E007EFF91 /* SectionButton.swift in Sources */,
 				D1D2E296276A180A00447672 /* UninstallerVC.swift in Sources */,
 				8C38B758276760560042B27E /* BorderedRoundedButton.swift in Sources */,
+				D1A53E34276B405D0048027A /* AppsListItem.swift in Sources */,
 				D1D2E29A276A24E300447672 /* AppTableCellView.swift in Sources */,
 				D18A304E2769F00100996221 /* NSButton+Extension.swift in Sources */,
 				8CFF5E19275F80D000C71B9B /* AppDelegate.swift in Sources */,

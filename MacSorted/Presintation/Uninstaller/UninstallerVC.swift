@@ -18,7 +18,7 @@ final class UninstallerVC: NSViewController {
     // MARK: Properties
     
     private let appFetcher = AppFetcher()
-    private var apps = [App]()
+    private var apps = [AppsListItem]()
 
     // MARK: Lifecycle
     
@@ -28,7 +28,7 @@ final class UninstallerVC: NSViewController {
         searchField.appearance = NSAppearance(named: .aqua)
         
         appFetcher.fetch { [weak self] apps in
-            self?.apps = apps
+            self?.apps = apps.compactMap { AppsListItem(app: $0) }
             self?.tableVeiw.reloadData()
         }
     }
@@ -60,7 +60,9 @@ extension UninstallerVC: NSTableViewDelegate {
         
         guard let cellView = tableView.makeView(withIdentifier: cellId, owner: self) as? AppTableCellView
         else { return nil }
-        cellView.configure(with: apps[row])
+        cellView.configure(with: apps[row]) { [weak self] in
+            self?.apps[row].toggleSelection()
+        }
         
         return cellView
     }

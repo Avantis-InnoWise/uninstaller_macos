@@ -3,16 +3,28 @@ import Cocoa
 final class AppTableCellView: NSTableCellView {
     // MARK: Outlets
     
-    @IBOutlet private weak var checkbox: NSButton!
+    @IBOutlet private weak var checkbox: Checkbox!
     @IBOutlet private weak var appIconImageView: NSImageView!
     @IBOutlet private weak var appNameLabel: NSTextField!
     @IBOutlet private weak var appLocationLabel: NSTextField!
     
+    // MARK: Properties
+    
+    private var checkboxHandler: (() -> Void)?
+    
+    // MARK: Actions
+    
+    @IBAction private func checkboxWasTapped(_ sender: Checkbox) {
+        checkboxHandler?()
+    }
+    
     // MARK: Configs
     
-    func configure(with app: App) {
-        appIconImageView.image = NSImage(contentsOf: app.iconPath)
-        appNameLabel.stringValue = app.name
-        appLocationLabel.stringValue = app.path.path
+    func configure(with item: AppsListItem, checkboxHandler: @escaping () -> Void) {
+        checkbox.state = item.isSelected ? .on : .off
+        appIconImageView.image = NSImage(contentsOf: item.app.iconPath)
+        appNameLabel.stringValue = item.app.name
+        appLocationLabel.stringValue = item.app.path.path
+        self.checkboxHandler = checkboxHandler
     }
 }

@@ -6,8 +6,7 @@ final class Checkbox: GradientButton {
     }
     
     override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-        
         image = state == NSControl.StateValue.on ? Constant.checkImage : nil
+        super.draw(dirtyRect)
     }
 }
