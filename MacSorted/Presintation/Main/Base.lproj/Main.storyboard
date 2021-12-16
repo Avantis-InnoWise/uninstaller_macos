@@ -982,10 +982,13 @@
                                                                         <constraint firstAttribute="width" constant="16" id="EYG-hI-sKa"/>
                                                                         <constraint firstAttribute="height" constant="16" id="aSI-Sk-OHL"/>
                                                                     </constraints>
-                                                                    <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" imagePosition="only" state="on" inset="2" id="6d8-dD-Vm0">
+                                                                    <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" imagePosition="only" inset="2" id="6d8-dD-Vm0">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                         <font key="font" metaFont="cellTitle"/>
                                                                     </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="checkboxWasTapped:" target="aQg-CH-ccE" id="tNo-v5-bOh"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZQd-Q6-BBM">
                                                                     <rect key="frame" x="82" y="7" width="476" height="32"/>
@@ -1008,7 +1011,7 @@
                                                                         </textField>
                                                                     </subviews>
                                                                     <visibilityPriorities>
-                                                                        <real value="1000"/>
+                                                                        <integer value="1000"/>
                                                                         <integer value="1000"/>
                                                                     </visibilityPriorities>
                                                                     <customSpacing>
