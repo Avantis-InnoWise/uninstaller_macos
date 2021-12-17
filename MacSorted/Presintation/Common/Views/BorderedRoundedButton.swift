@@ -7,18 +7,53 @@ class BorderedRoundedButton: NSButton {
         static let titleColor = NSColor(named: "offButtonTitle")!
         static let borderColor = NSColor(named: "buttonBorder")
         static let backgroundColor = NSColor(named: "roundedButtonBackground")
+        static let backgroundBlueColor = NSColor(named: "roundedButtonColoredBackground")
         static let borderWidth: CGFloat = 1
         static let cornerRadius: CGFloat = 5
         static let semiAlphaComponent: CGFloat = 0.5
+        static let gradientInitialAlpha: CGFloat = 0.7
+    }
+    
+    // MARK: Properties
+    
+    var isColored = false { didSet { draw(bounds) } }
+    
+    private var backgroundColor: NSColor? {
+        isColored ? Constant.backgroundBlueColor : Constant.backgroundColor
     }
     
     // MARK: Lifecycle
     
     override func draw(_ dirtyRect: NSRect) {
+        if isColored {
+            drawGradient(
+                in: dirtyRect,
+                initialColor: backgroundColor?
+                    .withAlphaComponent(Constant.gradientInitialAlpha) ?? .clear,
+                finalColor: backgroundColor ?? .clear
+            )
+        }
+        
         super.draw(dirtyRect)
-        layer?.backgroundColor = isHighlighted
-        ? Constant.backgroundColor?.withAlphaComponent(Constant.semiAlphaComponent).cgColor
-        : Constant.backgroundColor?.cgColor
+        
+        if !isColored {
+            layer?.backgroundColor = isHighlighted
+            ? backgroundColor?.withAlphaComponent(Constant.semiAlphaComponent).cgColor
+            : backgroundColor?.cgColor
+        }
+        
+        layer?.borderColor = isColored
+        ? Constant.backgroundBlueColor?.cgColor
+        : Constant.borderColor?.cgColor
+        
+        attributedTitle = NSAttributedString(
+            string: attributedTitle.string,
+            attributes: [
+                NSAttributedString.Key.foregroundColor : isColored
+                ? NSColor.white
+                : Constant.titleColor
+            ]
+        )
     }
     
     override func awakeFromNib() {
@@ -29,6 +64,7 @@ class BorderedRoundedButton: NSButton {
         layer?.borderWidth = Constant.borderWidth
         layer?.cornerRadius = Constant.cornerRadius
         layer?.backgroundColor = Constant.backgroundColor?.cgColor
+        layer?.masksToBounds = true
         
         attributedTitle = NSAttributedString(
             string: attributedTitle.string,
