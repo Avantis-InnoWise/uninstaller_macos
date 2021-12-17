@@ -11,8 +11,8 @@ final class UninstallerVC: NSViewController {
     // MARK: Outlets
     
     @IBOutlet private weak var searchField: NSTextField!
-    @IBOutlet private weak var selectAllButton: BorderedRoundedButton!
-    @IBOutlet private weak var uninstallButton: NSButton!
+    @IBOutlet private weak var selectAllButton: GradientButton!
+    @IBOutlet private weak var uninstallButton: BorderedRoundedButton!
     @IBOutlet private weak var tableVeiw: NSTableView!
     
     // MARK: Properties
@@ -76,6 +76,8 @@ extension UninstallerVC: NSTableViewDelegate {
         else { return nil }
         cellView.configure(with: filteredApps[row]) { [weak self] in
             self?.filteredApps[row].toggleSelection()
+            
+            self?.uninstallButton.isColored = self?.filteredApps.contains { $0.isSelected } ?? false
             
             guard let indexInUnfilteredApps = self?.apps.firstIndex(where: { $0.app == self?.filteredApps[row].app }) else { return }
             self?.apps[indexInUnfilteredApps].toggleSelection()

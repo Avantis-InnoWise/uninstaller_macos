@@ -10,5 +10,6 @@ class GradientButton: BorderedRoundedButton {
         drawGradient(in: dirtyRect)
         super.draw(dirtyRect)
         layer?.backgroundColor = NSColor.white.cgColor
+        layer?.masksToBounds = true
     }
 }
