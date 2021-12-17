@@ -16,6 +16,22 @@ final class AppFetcher {
         }
     }
     
+//    func uninstall(_ app: App) {
+//        for dataLocation in app.dataLocations {
+//            do {
+//                try FileManager.default.removeItem(at: dataLocation.location)
+//            } catch {
+//                print(error)
+//            }
+//        }
+//
+//        do {
+//            try FileManager.default.removeItem(at: app.path)
+//        } catch {
+//            print(error)
+//        }
+//    }
+    
     func getInstalledApp(progress: (App)->()) -> Void {
         let fm = FileManager.default
         let resourceKeys = Set<URLResourceKey>([.nameKey, .isDirectoryKey])

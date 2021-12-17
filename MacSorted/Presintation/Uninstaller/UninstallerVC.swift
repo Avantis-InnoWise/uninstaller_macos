@@ -19,6 +19,15 @@ final class UninstallerVC: NSViewController {
     
     private let appFetcher = AppFetcher()
     private var apps = [AppsListItem]()
+    
+    private var filteredApps = [AppsListItem]()
+    
+    private var filter = "" {
+        didSet {
+            filteredApps = filter.isEmpty ? apps : apps.filter { $0.app.name.lowercased().contains(filter) }
+            tableVeiw.reloadData()
+        }
+    }
 
     // MARK: Lifecycle
     
@@ -26,9 +35,11 @@ final class UninstallerVC: NSViewController {
         super.viewDidLoad()
         
         searchField.appearance = NSAppearance(named: .aqua)
+        searchField.delegate = self
         
         appFetcher.fetch { [weak self] apps in
             self?.apps = apps.compactMap { AppsListItem(app: $0) }
+            self?.filteredApps = self?.apps ?? []
             self?.tableVeiw.reloadData()
         }
     }
@@ -36,6 +47,9 @@ final class UninstallerVC: NSViewController {
     // MARK: Actions
     
     @IBAction private func uninstallButtonWasTapped(_ sender: BorderedRoundedButton) {
+//        for app in filteredApps where app.isSelected {
+//            appFetcher.uninstall(app.app)
+//        }
     }
     
     @IBAction private func selectAllButtonWasTapped(_ sender: GradientButton) {
@@ -45,11 +59,11 @@ final class UninstallerVC: NSViewController {
 // MARK: NSTableViewDataSource
 extension UninstallerVC: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        apps.count
+        filteredApps.count
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        apps[row]
+        filteredApps[row]
     }
 }
 
@@ -60,8 +74,11 @@ extension UninstallerVC: NSTableViewDelegate {
         
         guard let cellView = tableView.makeView(withIdentifier: cellId, owner: self) as? AppTableCellView
         else { return nil }
-        cellView.configure(with: apps[row]) { [weak self] in
-            self?.apps[row].toggleSelection()
+        cellView.configure(with: filteredApps[row]) { [weak self] in
+            self?.filteredApps[row].toggleSelection()
+            
+            guard let indexInUnfilteredApps = self?.apps.firstIndex(where: { $0.app == self?.filteredApps[row].app }) else { return }
+            self?.apps[indexInUnfilteredApps].toggleSelection()
         }
         
         return cellView
@@ -69,5 +86,13 @@ extension UninstallerVC: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         Constant.rowHeight
+    }
+}
+
+// MARK: NSSearchFieldDelegate
+extension UninstallerVC: NSSearchFieldDelegate {
+    func controlTextDidChange(_ obj: Notification) {
+        guard let object = obj.object as? NSTextField else { return }
+        filter = object.stringValue.trimmingCharacters(in: .whitespaces).lowercased()
     }
 }
