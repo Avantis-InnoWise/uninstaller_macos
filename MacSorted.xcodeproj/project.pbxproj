@@ -15,12 +15,14 @@
 		8CFF5E20275F80D100C71B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFF5E1E275F80D100C71B9B /* Main.storyboard */; };
 		D18A304E2769F00100996221 /* NSButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A304D2769F00100996221 /* NSButton+Extension.swift */; };
 		D18A30502769F1DC00996221 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A304F2769F1DC00996221 /* GradientButton.swift */; };
+		D1A27B5B2771CA7A00B5E1EC /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A27B5A2771CA7A00B5E1EC /* NSView+Extension.swift */; };
 		D1A53E34276B405D0048027A /* AppsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A53E33276B405D0048027A /* AppsListItem.swift */; };
 		D1D2E296276A180A00447672 /* UninstallerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D2E295276A180A00447672 /* UninstallerVC.swift */; };
-		D1D2E29A276A24E300447672 /* AppTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D2E299276A24E300447672 /* AppTableCellView.swift */; };
+		D1D2E29A276A24E300447672 /* CheckboxTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D2E299276A24E300447672 /* CheckboxTableCell.swift */; };
 		D1D2E29D276A258400447672 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D2E29C276A258400447672 /* App.swift */; };
 		D1D2E2A0276A308800447672 /* AppFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D2E29F276A308800447672 /* AppFetcher.swift */; };
 		D1D2E2A2276A434F00447672 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D2E2A1276A434F00447672 /* Checkbox.swift */; };
+		D1FF9C01276CA43200F5AA38 /* FileDeleterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF9C00276CA43200F5AA38 /* FileDeleterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,12 +35,14 @@
 		8CFF5E1F275F80D100C71B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D18A304D2769F00100996221 /* NSButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton+Extension.swift"; sourceTree = "<group>"; };
 		D18A304F2769F1DC00996221 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		D1A27B5A2771CA7A00B5E1EC /* NSView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Extension.swift"; sourceTree = "<group>"; };
 		D1A53E33276B405D0048027A /* AppsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsListItem.swift; sourceTree = "<group>"; };
 		D1D2E295276A180A00447672 /* UninstallerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstallerVC.swift; sourceTree = "<group>"; };
-		D1D2E299276A24E300447672 /* AppTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableCellView.swift; sourceTree = "<group>"; };
+		D1D2E299276A24E300447672 /* CheckboxTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxTableCell.swift; sourceTree = "<group>"; };
 		D1D2E29C276A258400447672 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		D1D2E29F276A308800447672 /* AppFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFetcher.swift; sourceTree = "<group>"; };
 		D1D2E2A1276A434F00447672 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		D1FF9C00276CA43200F5AA38 /* FileDeleterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDeleterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				D18A304D2769F00100996221 /* NSButton+Extension.swift */,
+				D1A27B5A2771CA7A00B5E1EC /* NSView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -72,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				8C70E92927623A40007EFF91 /* Common */,
+				D1FF9BFF276CA40A00F5AA38 /* FileDeleter */,
 				8C70E92A27624914007EFF91 /* Main */,
 				D1D2E294276A17E800447672 /* Uninstaller */,
 			);
@@ -93,7 +99,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		8C70E9262761F7A9007EFF91 /* Views */ = {
+		8C70E9262761F7A9007EFF91 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				8C38B757276760560042B27E /* BorderedRoundedButton.swift */,
@@ -101,14 +107,15 @@
 				8C70E9242761F78E007EFF91 /* SectionButton.swift */,
 				D1D2E2A1276A434F00447672 /* Checkbox.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		8C70E92927623A40007EFF91 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D1D2E297276A248F00447672 /* Cell */,
 				8C38B75B276789FE0042B27E /* Extension */,
-				8C70E9262761F7A9007EFF91 /* Views */,
+				8C70E9262761F7A9007EFF91 /* View */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -171,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				D1A53E32276B403A0048027A /* Model */,
-				D1D2E297276A248F00447672 /* Cell */,
 				D1D2E295276A180A00447672 /* UninstallerVC.swift */,
 			);
 			path = Uninstaller;
@@ -180,7 +186,7 @@
 		D1D2E297276A248F00447672 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				D1D2E299276A24E300447672 /* AppTableCellView.swift */,
+				D1D2E299276A24E300447672 /* CheckboxTableCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -199,6 +205,14 @@
 				D1D2E29F276A308800447672 /* AppFetcher.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		D1FF9BFF276CA40A00F5AA38 /* FileDeleter */ = {
+			isa = PBXGroup;
+			children = (
+				D1FF9C00276CA43200F5AA38 /* FileDeleterVC.swift */,
+			);
+			path = FileDeleter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,13 +288,15 @@
 				D1D2E29D276A258400447672 /* App.swift in Sources */,
 				D1D2E2A0276A308800447672 /* AppFetcher.swift in Sources */,
 				D18A30502769F1DC00996221 /* GradientButton.swift in Sources */,
+				D1FF9C01276CA43200F5AA38 /* FileDeleterVC.swift in Sources */,
 				8CFF5E1B275F80D000C71B9B /* MainVC.swift in Sources */,
 				D1D2E2A2276A434F00447672 /* Checkbox.swift in Sources */,
 				8C70E9252761F78E007EFF91 /* SectionButton.swift in Sources */,
+				D1A27B5B2771CA7A00B5E1EC /* NSView+Extension.swift in Sources */,
 				D1D2E296276A180A00447672 /* UninstallerVC.swift in Sources */,
 				8C38B758276760560042B27E /* BorderedRoundedButton.swift in Sources */,
 				D1A53E34276B405D0048027A /* AppsListItem.swift in Sources */,
-				D1D2E29A276A24E300447672 /* AppTableCellView.swift in Sources */,
+				D1D2E29A276A24E300447672 /* CheckboxTableCell.swift in Sources */,
 				D18A304E2769F00100996221 /* NSButton+Extension.swift in Sources */,
 				8CFF5E19275F80D000C71B9B /* AppDelegate.swift in Sources */,
 			);

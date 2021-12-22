@@ -5,7 +5,11 @@ final class MainVC: NSViewController {
     
     @IBOutlet private weak var uninstallerButton: SectionButton!
     @IBOutlet private weak var fileDeleterButton: SectionButton!
-
+    @IBOutlet private weak var containerView: NSView!
+    
+    private var uninstallerVC: UninstallerVC?
+    private var fileDeleterVC: FileDeleterVC?
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -13,6 +17,17 @@ final class MainVC: NSViewController {
         
         uninstallerButton.state = .on
         fileDeleterButton.state = .off
+        
+        uninstallerVC = storyboard?.instantiateController(withIdentifier: String(describing: UninstallerVC.self)) as? UninstallerVC
+        if let uninstallerVC = uninstallerVC {
+            addChild(uninstallerVC)
+            containerView.addSubview(uninstallerVC.view)
+            uninstallerVC.view.pinEdgesToSuperviewEdges()
+        }
+        fileDeleterVC = storyboard?.instantiateController(withIdentifier: String(describing: FileDeleterVC.self)) as? FileDeleterVC
+        if let fileDeleterVC = fileDeleterVC {
+            addChild(fileDeleterVC)
+        }
     }
     
     // MARK: Actions
@@ -29,5 +44,17 @@ final class MainVC: NSViewController {
         fileDeleterButton.state =  sender == fileDeleterButton && fileDeleterButton.state == NSControl.StateValue.on
         ? NSControl.StateValue.on
         : NSControl.StateValue.off
+        
+        for subview in containerView.subviews {
+            subview.removeFromSuperview()
+        }
+        
+        if sender == uninstallerButton, let uninstallerVC = uninstallerVC {
+            containerView.addSubview(uninstallerVC.view)
+            uninstallerVC.view.pinEdgesToSuperviewEdges()
+        } else if sender == fileDeleterButton, let fileDeleterVC = fileDeleterVC {
+            containerView.addSubview(fileDeleterVC.view)
+            fileDeleterVC.view.pinEdgesToSuperviewEdges()
+        }
     }
 }

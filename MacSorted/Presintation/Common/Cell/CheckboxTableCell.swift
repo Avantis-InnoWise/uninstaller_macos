@@ -1,6 +1,8 @@
 import Cocoa
 
-final class AppTableCellView: NSTableCellView {
+final class CheckboxTableCell: NSTableCellView {
+    static let reuseId = "AppTableCellView"
+    
     // MARK: Outlets
     
     @IBOutlet private weak var checkbox: Checkbox!

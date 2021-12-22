@@ -16,10 +16,11 @@ class BorderedRoundedButton: NSButton {
     
     // MARK: Properties
     
-    var isColored = false { didSet { draw(bounds) } }
+    @IBInspectable var isColored: Bool = false { didSet { draw(bounds) } }
+    @IBInspectable var сolor: NSColor = Constant.backgroundBlueColor ?? .clear
     
     private var backgroundColor: NSColor? {
-        isColored ? Constant.backgroundBlueColor : Constant.backgroundColor
+        isColored ? сolor : Constant.backgroundColor
     }
     
     // MARK: Lifecycle
@@ -43,7 +44,7 @@ class BorderedRoundedButton: NSButton {
         }
         
         layer?.borderColor = isColored
-        ? Constant.backgroundBlueColor?.cgColor
+        ? сolor.cgColor
         : Constant.borderColor?.cgColor
         
         attributedTitle = NSAttributedString(
@@ -68,7 +69,11 @@ class BorderedRoundedButton: NSButton {
         
         attributedTitle = NSAttributedString(
             string: attributedTitle.string,
-            attributes: [NSAttributedString.Key.foregroundColor : Constant.titleColor]
+            attributes: [
+                NSAttributedString.Key.foregroundColor : isColored
+                ? NSColor.white
+                : Constant.titleColor
+            ]
         )
     }
 }

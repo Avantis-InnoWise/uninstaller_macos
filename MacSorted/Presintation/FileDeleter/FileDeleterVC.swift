@@ -1,6 +1,6 @@
 import Cocoa
 
-final class UninstallerVC: NSViewController {
+final class FileDeleterVC: NSViewController {
     // MARK: Constants
     
     private enum Constant {
@@ -11,7 +11,7 @@ final class UninstallerVC: NSViewController {
     
     @IBOutlet private weak var searchField: NSTextField!
     @IBOutlet private weak var selectAllButton: GradientButton!
-    @IBOutlet private weak var uninstallButton: BorderedRoundedButton!
+    @IBOutlet private weak var deleteButton: BorderedRoundedButton!
     @IBOutlet private weak var tableVeiw: NSTableView!
     
     // MARK: Properties
@@ -45,18 +45,27 @@ final class UninstallerVC: NSViewController {
     
     // MARK: Actions
     
-    @IBAction private func uninstallButtonWasTapped(_ sender: BorderedRoundedButton) {
+    @IBAction private func findDuplicatesButtonWasTapped(_ sender: BorderedRoundedButton) {
+        
+    }
+    
+    @IBAction private func findOldFilesButtonWasTapped(_ sender: BorderedRoundedButton) {
+        
+    }
+    
+    @IBAction private func deleteButtonWasTapped(_ sender: BorderedRoundedButton) {
 //        for app in filteredApps where app.isSelected {
 //            appFetcher.uninstall(app.app)
 //        }
     }
     
     @IBAction private func selectAllButtonWasTapped(_ sender: GradientButton) {
+        
     }
 }
 
 // MARK: NSTableViewDataSource
-extension UninstallerVC: NSTableViewDataSource {
+extension FileDeleterVC: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         filteredApps.count
     }
@@ -67,7 +76,7 @@ extension UninstallerVC: NSTableViewDataSource {
 }
 
 // MARK: NSTableViewDelegate
-extension UninstallerVC: NSTableViewDelegate {
+extension FileDeleterVC: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cellId = NSUserInterfaceItemIdentifier(CheckboxTableCell.reuseId)
         
@@ -76,7 +85,7 @@ extension UninstallerVC: NSTableViewDelegate {
         cellView.configure(with: filteredApps[row]) { [weak self] in
             self?.filteredApps[row].toggleSelection()
             
-            self?.uninstallButton.isColored = self?.filteredApps.contains { $0.isSelected } ?? false
+            self?.deleteButton.isColored = self?.filteredApps.contains { $0.isSelected } ?? false
             
             guard let indexInUnfilteredApps = self?.apps.firstIndex(where: { $0.app == self?.filteredApps[row].app }) else { return }
             self?.apps[indexInUnfilteredApps].toggleSelection()
@@ -91,7 +100,7 @@ extension UninstallerVC: NSTableViewDelegate {
 }
 
 // MARK: NSSearchFieldDelegate
-extension UninstallerVC: NSSearchFieldDelegate {
+extension FileDeleterVC: NSSearchFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
         guard let object = obj.object as? NSTextField else { return }
         filter = object.stringValue.trimmingCharacters(in: .whitespaces).lowercased()
