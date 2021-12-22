@@ -23,7 +23,11 @@ final class UninstallerVC: NSViewController {
     
     private var filter = "" {
         didSet {
-            filteredApps = filter.isEmpty ? apps : apps.filter { $0.app.name.lowercased().contains(filter) }
+            filteredApps = filter.isEmpty
+            ? apps
+            : apps.filter { $0.app.name.lowercased().contains(filter) }
+            
+            uninstallButton.isColored = filteredApps.contains { $0.isSelected }
             tableVeiw.reloadData()
         }
     }
@@ -52,6 +56,22 @@ final class UninstallerVC: NSViewController {
     }
     
     @IBAction private func selectAllButtonWasTapped(_ sender: GradientButton) {
+        updateSelection()
+    }
+}
+
+// MARK: Private
+private extension UninstallerVC {
+    func updateSelection() {
+        let isSelected = !filteredApps.contains { $0.isSelected }
+        || filteredApps.contains { $0.isSelected } && filteredApps.contains { !$0.isSelected }
+        zip(.zero..<apps.count, .zero..<filteredApps.count).forEach {
+            apps[$0.0].setSelected(isSelected)
+            filteredApps[$0.1].setSelected(isSelected)
+        }
+        
+        uninstallButton.isColored = isSelected
+        tableVeiw.reloadData()
     }
 }
 
