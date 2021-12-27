@@ -18,16 +18,8 @@ final class MainVC: NSViewController {
         uninstallerButton.state = .on
         fileDeleterButton.state = .off
         
-        uninstallerVC = storyboard?.instantiateController(withIdentifier: String(describing: UninstallerVC.self)) as? UninstallerVC
-        if let uninstallerVC = uninstallerVC {
-            addChild(uninstallerVC)
-            containerView.addSubview(uninstallerVC.view)
-            uninstallerVC.view.pinEdgesToSuperviewEdges()
-        }
-        fileDeleterVC = getFileDeleterVC()
-        if let fileDeleterVC = fileDeleterVC {
-            addChild(fileDeleterVC)
-        }
+        setupUninstaller()
+        setupFileDeleter()
     }
     
     // MARK: Actions
@@ -65,5 +57,27 @@ private extension MainVC {
         let input = FileDeleterInput(fileManager: FilesManager())
         let composer = FileDeleterComposer.assemble(withInput: input)
         return composer.viewController
+    }
+    
+    func getUninstallerVC() -> UninstallerVC {
+        let input = UninstallerInput(appsManager: AppsManager())
+        let composer = UninstallerComposer.assemble(withInput: input)
+        return composer.viewController
+    }
+    
+    func setupFileDeleter() {
+        fileDeleterVC = getFileDeleterVC()
+        if let fileDeleterVC = fileDeleterVC {
+            addChild(fileDeleterVC)
+        }
+    }
+    
+    func setupUninstaller() {
+        uninstallerVC = getUninstallerVC()
+        if let uninstallerVC = uninstallerVC {
+            addChild(uninstallerVC)
+            containerView.addSubview(uninstallerVC.view)
+            uninstallerVC.view.pinEdgesToSuperviewEdges()
+        }
     }
 }
