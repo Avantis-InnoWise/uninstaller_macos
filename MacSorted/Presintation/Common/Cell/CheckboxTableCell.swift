@@ -22,11 +22,11 @@ final class CheckboxTableCell: NSTableCellView {
     
     // MARK: Configs
     
-    func configure(with item: AppsListItem, checkboxHandler: @escaping () -> Void) {
+    func configure(with item: CheckboxTableCellModel, checkboxHandler: @escaping () -> Void) {
         checkbox.state = item.isSelected ? .on : .off
-        appIconImageView.image = NSImage(contentsOf: item.app.iconPath)
-        appNameLabel.stringValue = item.app.name
-        appLocationLabel.stringValue = item.app.path.path
+        appIconImageView.image = item.image
+        appNameLabel.stringValue = item.title
+        appLocationLabel.stringValue = item.subtitle
         self.checkboxHandler = checkboxHandler
     }
 }

@@ -24,7 +24,7 @@ final class MainVC: NSViewController {
             containerView.addSubview(uninstallerVC.view)
             uninstallerVC.view.pinEdgesToSuperviewEdges()
         }
-        fileDeleterVC = storyboard?.instantiateController(withIdentifier: String(describing: FileDeleterVC.self)) as? FileDeleterVC
+        fileDeleterVC = getFileDeleterVC()
         if let fileDeleterVC = fileDeleterVC {
             addChild(fileDeleterVC)
         }
@@ -56,5 +56,14 @@ final class MainVC: NSViewController {
             containerView.addSubview(fileDeleterVC.view)
             fileDeleterVC.view.pinEdgesToSuperviewEdges()
         }
+    }
+}
+
+// MARK: Private
+private extension MainVC {
+    func getFileDeleterVC() -> FileDeleterVC {
+        let input = FileDeleterInput(fileManager: FilesManager())
+        let composer = FileDeleterComposer.assemble(withInput: input)
+        return composer.viewController
     }
 }

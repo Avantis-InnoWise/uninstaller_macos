@@ -93,7 +93,13 @@ extension UninstallerVC: NSTableViewDelegate {
         
         guard let cellView = tableView.makeView(withIdentifier: cellId, owner: self) as? CheckboxTableCell
         else { return nil }
-        cellView.configure(with: filteredApps[row]) { [weak self] in
+        let model = CheckboxTableCellModel(
+            isSelected: filteredApps[row].isSelected,
+            image: NSImage(contentsOf: filteredApps[row].app.iconPath) ?? NSImage(),
+            title: filteredApps[row].app.name,
+            subtitle: filteredApps[row].app.path.path
+        )
+        cellView.configure(with: model) { [weak self] in
             self?.filteredApps[row].toggleSelection()
             
             self?.uninstallButton.isColored = self?.filteredApps.contains { $0.isSelected } ?? false

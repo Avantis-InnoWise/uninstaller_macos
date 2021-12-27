@@ -16,21 +16,7 @@ final class FileDeleterVC: NSViewController {
     
     // MARK: Properties
     
-    private let appFetcher = AppFetcher()
-    private var apps = [AppsListItem]()
-    
-    private var filteredApps = [AppsListItem]()
-    
-    private var filter = "" {
-        didSet {
-            filteredApps = filter.isEmpty
-            ? apps
-            : apps.filter { $0.app.name.lowercased().contains(filter) }
-            
-            deleteButton.isColored = filteredApps.contains { $0.isSelected }
-            tableVeiw.reloadData()
-        }
-    }
+    var output: FileDeleterViewOutput!
 
     // MARK: Lifecycle
     
@@ -39,58 +25,35 @@ final class FileDeleterVC: NSViewController {
         
         searchField.appearance = NSAppearance(named: .aqua)
         searchField.delegate = self
-        
-        appFetcher.fetch { [weak self] apps in
-            self?.apps = apps.compactMap { AppsListItem(app: $0) }
-            self?.filteredApps = self?.apps ?? []
-            self?.tableVeiw.reloadData()
-        }
     }
     
     // MARK: Actions
     
     @IBAction private func findDuplicatesButtonWasTapped(_ sender: BorderedRoundedButton) {
-        
+        output.findDuplicatedFilesWasTapped()
     }
     
     @IBAction private func findOldFilesButtonWasTapped(_ sender: BorderedRoundedButton) {
-        
+        output.findOldFilesWasTapped()
     }
     
     @IBAction private func deleteButtonWasTapped(_ sender: BorderedRoundedButton) {
-//        for app in filteredApps where app.isSelected {
-//            appFetcher.uninstall(app.app)
-//        }
+        output.deleteSelectedItemsWasTapped()
     }
     
     @IBAction private func selectAllButtonWasTapped(_ sender: GradientButton) {
-        updateSelection()
-    }
-}
-
-// MARK: Private
-private extension FileDeleterVC {
-    func updateSelection() {
-        let isSelected = !filteredApps.contains { $0.isSelected }
-        || filteredApps.contains { $0.isSelected } && filteredApps.contains { !$0.isSelected }
-        zip(.zero..<apps.count, .zero...filteredApps.count).forEach {
-            apps[$0.0].setSelected(isSelected)
-            filteredApps[$0.1].setSelected(isSelected)
-        }
-        
-        deleteButton.isColored = isSelected
-        tableVeiw.reloadData()
+        output.selectAllButtonWasTapped()
     }
 }
 
 // MARK: NSTableViewDataSource
 extension FileDeleterVC: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        filteredApps.count
+        output.items.count
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        filteredApps[row]
+        output.items[row]
     }
 }
 
@@ -99,15 +62,15 @@ extension FileDeleterVC: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cellId = NSUserInterfaceItemIdentifier(CheckboxTableCell.reuseId)
         
-        guard let cellView = tableView.makeView(withIdentifier: cellId, owner: self) as? CheckboxTableCell
-        else { return nil }
-        cellView.configure(with: filteredApps[row]) { [weak self] in
-            self?.filteredApps[row].toggleSelection()
+        guard let cellView = tableView.makeView(
+            withIdentifier: cellId,
+            owner: self
+        ) as? CheckboxTableCell else { return nil }
+        
+        cellView.configure(with: output.items[row]) { [weak self] in
+            self?.output.toggleSelection(at: row)
             
-            self?.deleteButton.isColored = self?.filteredApps.contains { $0.isSelected } ?? false
-            
-            guard let indexInUnfilteredApps = self?.apps.firstIndex(where: { $0.app == self?.filteredApps[row].app }) else { return }
-            self?.apps[indexInUnfilteredApps].toggleSelection()
+            self?.deleteButton.isColored = self?.output.items.contains { $0.isSelected } ?? false
         }
         
         return cellView
@@ -122,6 +85,49 @@ extension FileDeleterVC: NSTableViewDelegate {
 extension FileDeleterVC: NSSearchFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
         guard let object = obj.object as? NSTextField else { return }
-        filter = object.stringValue.trimmingCharacters(in: .whitespaces).lowercased()
+        let filter = object.stringValue.trimmingCharacters(in: .whitespaces).lowercased()
+        output.update(with: filter)
+    }
+
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        guard commandSelector == #selector(NSResponder.insertNewline(_:)) else { return false }
+        output.reloadModel()
+        return true
+    }
+}
+
+// MARK: FileDeleterViewInput
+extension FileDeleterVC: FileDeleterViewInput {
+    func update() {
+        tableVeiw.reloadData()
+        
+        deleteButton.isColored = output.items.contains { $0.isSelected }
+    }
+    
+    func showInformalAlert(title: String, message: String, buttonTitle: String) {
+        let alert = NSAlert()
+        alert.messageText = title
+        alert.informativeText = message
+        alert.addButton(withTitle: buttonTitle)
+        alert.alertStyle = .warning
+        alert.runModal()
+    }
+    
+    func showDecisionAlert(
+        title: String,
+        message: String,
+        okButtonTitle: String,
+        cancelButtonTitle: String,
+        decisionCompletion: () -> Void
+    ) {
+        let alert = NSAlert()
+        alert.messageText = title
+        alert.informativeText = message
+        alert.addButton(withTitle: okButtonTitle)
+        alert.addButton(withTitle: cancelButtonTitle)
+        alert.alertStyle = .warning
+        if alert.runModal() == .alertFirstButtonReturn {
+            decisionCompletion()
+        }
     }
 }
