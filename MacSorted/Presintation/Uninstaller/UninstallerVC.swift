@@ -5,7 +5,6 @@ final class UninstallerVC: NSViewController {
     
     private enum Constant {
         static let rowHeight: CGFloat = 50
-        static let tableCellId = "AppTableCellView"
     }
     
     // MARK: Outlets
@@ -24,7 +23,11 @@ final class UninstallerVC: NSViewController {
     
     private var filter = "" {
         didSet {
-            filteredApps = filter.isEmpty ? apps : apps.filter { $0.app.name.lowercased().contains(filter) }
+            filteredApps = filter.isEmpty
+            ? apps
+            : apps.filter { $0.app.name.lowercased().contains(filter) }
+            
+            uninstallButton.isColored = filteredApps.contains { $0.isSelected }
             tableVeiw.reloadData()
         }
     }
@@ -53,6 +56,22 @@ final class UninstallerVC: NSViewController {
     }
     
     @IBAction private func selectAllButtonWasTapped(_ sender: GradientButton) {
+        updateSelection()
+    }
+}
+
+// MARK: Private
+private extension UninstallerVC {
+    func updateSelection() {
+        let isSelected = !filteredApps.contains { $0.isSelected }
+        || filteredApps.contains { $0.isSelected } && filteredApps.contains { !$0.isSelected }
+        zip(.zero..<apps.count, .zero..<filteredApps.count).forEach {
+            apps[$0.0].setSelected(isSelected)
+            filteredApps[$0.1].setSelected(isSelected)
+        }
+        
+        uninstallButton.isColored = isSelected
+        tableVeiw.reloadData()
     }
 }
 
@@ -70,11 +89,17 @@ extension UninstallerVC: NSTableViewDataSource {
 // MARK: NSTableViewDelegate
 extension UninstallerVC: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cellId = NSUserInterfaceItemIdentifier(Constant.tableCellId)
+        let cellId = NSUserInterfaceItemIdentifier(CheckboxTableCell.reuseId)
         
-        guard let cellView = tableView.makeView(withIdentifier: cellId, owner: self) as? AppTableCellView
+        guard let cellView = tableView.makeView(withIdentifier: cellId, owner: self) as? CheckboxTableCell
         else { return nil }
-        cellView.configure(with: filteredApps[row]) { [weak self] in
+        let model = CheckboxTableCellModel(
+            isSelected: filteredApps[row].isSelected,
+            image: NSImage(contentsOf: filteredApps[row].app.iconPath) ?? NSImage(),
+            title: filteredApps[row].app.name,
+            subtitle: filteredApps[row].app.path.path
+        )
+        cellView.configure(with: model) { [weak self] in
             self?.filteredApps[row].toggleSelection()
             
             self?.uninstallButton.isColored = self?.filteredApps.contains { $0.isSelected } ?? false
