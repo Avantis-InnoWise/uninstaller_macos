@@ -7,7 +7,10 @@ final class FileDeleterComposer {
     class func assemble(withInput input: FileDeleterInput) -> FileDeleterComposer {
         let presenter = FileDeleterPresenter(with: input.fileManager)
         
-        let viewController = NSStoryboard.main?.instantiateController(
+        let viewController = NSStoryboard(
+            name: "Main",
+            bundle: Bundle.main
+        ).instantiateController(
             withIdentifier: String(describing: FileDeleterVC.self)
         ) as! FileDeleterVC
         

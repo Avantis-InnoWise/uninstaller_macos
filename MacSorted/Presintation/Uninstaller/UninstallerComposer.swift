@@ -7,7 +7,10 @@ final class UninstallerComposer {
     class func assemble(withInput input: UninstallerInput) -> UninstallerComposer {
         let presenter = UninstallerPresenter(with: input.appsManager)
         
-        let viewController = NSStoryboard.main?.instantiateController(
+        let viewController = NSStoryboard(
+            name: "Main",
+            bundle: Bundle.main
+        ).instantiateController(
             withIdentifier: String(describing: UninstallerVC.self)
         ) as! UninstallerVC
         

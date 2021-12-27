@@ -4,10 +4,10 @@ final class SectionButton: NSButton {
     // MARK: Constants
     
     private enum Constant {
-        static let onButtonTitleColor = NSColor(named: "onButtonTitle")!
-        static let offButtonTitleColor = NSColor(named: "offButtonTitle")!
-        static let selectedButtonColor = NSColor(named: "selectedButton")!
-        static let unselectedButtonColor = NSColor(named: "unselectedButton")!
+        static let onButtonTitleColor = NSColor(srgbRed: 0.945, green: 0.945, blue: 0.945, alpha: 1)
+        static let offButtonTitleColor = NSColor(srgbRed: 0.588, green: 0.588, blue: 0.588, alpha: 1)
+        static let selectedButtonColor = NSColor(srgbRed: 0.478, green: 0.686, blue: 1, alpha: 1)
+        static let unselectedButtonColor = NSColor(srgbRed: 0.941, green: 0.941, blue: 0.941, alpha: 1)
     }
     
     // MARK: Lifecycle

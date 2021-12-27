@@ -4,10 +4,10 @@ class BorderedRoundedButton: NSButton {
     // MARK: Constant
     
     private enum Constant {
-        static let titleColor = NSColor(named: "offButtonTitle")!
-        static let borderColor = NSColor(named: "buttonBorder")
-        static let backgroundColor = NSColor(named: "roundedButtonBackground")
-        static let backgroundBlueColor = NSColor(named: "roundedButtonColoredBackground")
+        static let titleColor = NSColor(srgbRed: 0.588, green: 0.588, blue: 0.588, alpha: 1)
+        static let borderColor = NSColor(srgbRed: 0.878, green: 0.878, blue: 0.878, alpha: 1)
+        static let backgroundColor = NSColor(srgbRed: 0.945, green: 0.945, blue: 0.945, alpha: 1)
+        static let backgroundBlueColor = NSColor(srgbRed: 0.302, green: 0.580, blue: 1, alpha: 1)
         static let borderWidth: CGFloat = 1
         static let cornerRadius: CGFloat = 5
         static let semiAlphaComponent: CGFloat = 0.5
@@ -43,8 +43,8 @@ class BorderedRoundedButton: NSButton {
         }
         
         layer?.borderColor = isColored
-        ? Constant.backgroundBlueColor?.cgColor
-        : Constant.borderColor?.cgColor
+        ? Constant.backgroundBlueColor.cgColor
+        : Constant.borderColor.cgColor
         
         attributedTitle = NSAttributedString(
             string: attributedTitle.string,
@@ -60,10 +60,10 @@ class BorderedRoundedButton: NSButton {
         super.awakeFromNib()
         
         wantsLayer = true
-        layer?.borderColor = Constant.borderColor?.cgColor
+        layer?.borderColor = Constant.borderColor.cgColor
         layer?.borderWidth = Constant.borderWidth
         layer?.cornerRadius = Constant.cornerRadius
-        layer?.backgroundColor = Constant.backgroundColor?.cgColor
+        layer?.backgroundColor = Constant.backgroundColor.cgColor
         layer?.masksToBounds = true
         
         attributedTitle = NSAttributedString(
