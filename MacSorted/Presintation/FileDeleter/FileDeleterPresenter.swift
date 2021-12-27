@@ -76,6 +76,8 @@ extension FileDeleterPresenter: FileDeleterViewOutput {
     }
     
     func deleteSelectedItemsWasTapped() {
+        guard !items.filter({ $0.isSelected }).isEmpty else { return }
+        
         view.showDecisionAlert(
             title: Constant.decisionAlertTitle,
             message: Constant.decisionAlertMessage,
@@ -87,7 +89,12 @@ extension FileDeleterPresenter: FileDeleterViewOutput {
             
             for item in self?.items ?? [] where item.isSelected {
                 dispatchGroup.enter()
-                self?.fileManager.deleteFile(item.subtitle) { [weak self] error in
+                
+                guard let fileLocation = item.sourceLocations.first else {
+                    dispatchGroup.leave()
+                    continue
+                }
+                self?.fileManager.deleteFile(fileLocation.path) { [weak self] error in
                     guard let error = error else {
                         self?.fileItems.removeAll { $0 == item }
                         dispatchGroup.leave()
@@ -144,11 +151,12 @@ private extension FileDeleterPresenter {
         fileItems = files.compactMap {
             CheckboxTableCellModel(
                 isSelected: false,
+                title: $0.name,
+                subtitle: $0.path,
                 image: $0.isDirectory
                 ? NSImage(named: "folder")
                 : NSImage(named: "files"),
-                title: $0.name,
-                subtitle: $0.path
+                sourceLocations: [URL(fileURLWithPath: $0.path)]
             )
         }
         

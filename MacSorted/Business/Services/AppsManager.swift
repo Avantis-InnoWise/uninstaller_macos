@@ -1,6 +1,6 @@
 import Foundation
 
-final class AppFetcher {
+final class AppsManager {
     // fetch browse the disk on another queue to find information
     // about what app are installed, and where did they write data
     func fetch(completion: @escaping ([App]) -> Void) {
@@ -16,21 +16,17 @@ final class AppFetcher {
         }
     }
     
-//    func uninstall(_ app: App) {
-//        for dataLocation in app.dataLocations {
-//            do {
-//                try FileManager.default.removeItem(at: dataLocation.location)
-//            } catch {
-//                print(error)
-//            }
-//        }
-//
-//        do {
-//            try FileManager.default.removeItem(at: app.path)
-//        } catch {
-//            print(error)
-//        }
-//    }
+    func uninstall(with locations: [URL], completion: (Error?) -> Void) {
+        for location in locations {
+            do {
+                try FileManager.default.removeItem(at: location)
+            } catch {
+                print(error)
+                completion(error)
+                break
+            }
+        }
+    }
     
     func getInstalledApp(progress: (App)->()) -> Void {
         let fm = FileManager.default
@@ -81,7 +77,7 @@ final class AppFetcher {
                     }
                     
                     var dataLocations = getAppDataLocations(info: info)
-                    dataLocations.insert(PathInfo(location: fileURL), at: 0)
+                    dataLocations.insert(fileURL, at: 0)
 
                     progress(App(
                         name: name,
@@ -99,8 +95,8 @@ final class AppFetcher {
     }
     
     // getAppDataLocations browses the disk to find data stored by this app
-    func getAppDataLocations(info: AppInfo) -> [PathInfo] {
-        var results = [PathInfo]()
+    func getAppDataLocations(info: AppInfo) -> [URL] {
+        var results = [URL]()
         let fm = FileManager.default
         // List of common directories where apps tend to store data
         let commonDirectories = [
@@ -125,7 +121,7 @@ final class AppFetcher {
                 if !fm.fileExists(atPath: dir.path, isDirectory: nil) {
                     continue
                 }
-                results.append(PathInfo(location: dir))
+                results.append(dir)
                 break
             }
         }
@@ -164,8 +160,4 @@ struct AppInfo: Decodable {
     var CFBundleIconFile: String
     var CFBundleIdentifier: String
     var CrProductDirName: String? // Chrome-based browser only
-}
-
-struct PathInfo: Hashable {
-    var location: URL
 }
