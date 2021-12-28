@@ -1,4 +1,5 @@
 import Foundation
+import AppKit
 
 final class AppsManager {
     // fetch browse the disk on another queue to find information
@@ -17,14 +18,36 @@ final class AppsManager {
     }
     
     func uninstall(with locations: [URL], completion: (Error?) -> Void) {
+        var script = ""
+        
         for location in locations {
-            do {
-                try FileManager.default.removeItem(at: location)
-            } catch {
+            script.append(
+                contentsOf: """
+                  set POSIX_path to \"\(location.path)\"
+                  do shell script \"\("rm -rfv ")\" & quoted form of POSIX_path with administrator privileges\n
+                """
+            )
+        }
+        
+        if let appleScript = NSAppleScript(source: script) {
+            var error: NSDictionary? = nil
+
+            appleScript.executeAndReturnError(&error)
+            if let error = error {
                 print(error)
-                completion(error)
-                break
+                completion(
+                    NSError(
+                        domain: "",
+                        code: 1,
+                        userInfo: error.scriptingProperties
+                    )
+                )
+            } else {
+                print("Deleted \(locations)")
+                completion(nil)
             }
+        } else {
+            print("Cannot create the AppleScript object")
         }
     }
     
