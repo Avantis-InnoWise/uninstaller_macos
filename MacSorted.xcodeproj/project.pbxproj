@@ -20,6 +20,7 @@
 		D124DA6A2774842900BB6064 /* FileDeleterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124DA692774842900BB6064 /* FileDeleterPresenter.swift */; };
 		D18A304E2769F00100996221 /* NSButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A304D2769F00100996221 /* NSButton+Extension.swift */; };
 		D18A30502769F1DC00996221 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A304F2769F1DC00996221 /* GradientButton.swift */; };
+		D19E8BB7277B4E6600E25222 /* NSViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E8BB6277B4E6600E25222 /* NSViewController+Extension.swift */; };
 		D1A27B5B2771CA7A00B5E1EC /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A27B5A2771CA7A00B5E1EC /* NSView+Extension.swift */; };
 		D1AFC638277315B900D7C9AB /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AFC637277315B900D7C9AB /* FilesManager.swift */; };
 		D1AFC63A2773162500D7C9AB /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AFC6392773162500D7C9AB /* File.swift */; };
@@ -46,6 +47,7 @@
 		D124DA692774842900BB6064 /* FileDeleterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDeleterPresenter.swift; sourceTree = "<group>"; };
 		D18A304D2769F00100996221 /* NSButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton+Extension.swift"; sourceTree = "<group>"; };
 		D18A304F2769F1DC00996221 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		D19E8BB6277B4E6600E25222 /* NSViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+Extension.swift"; sourceTree = "<group>"; };
 		D1A27B5A2771CA7A00B5E1EC /* NSView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Extension.swift"; sourceTree = "<group>"; };
 		D1AFC637277315B900D7C9AB /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		D1AFC6392773162500D7C9AB /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				D18A304D2769F00100996221 /* NSButton+Extension.swift */,
 				D1A27B5A2771CA7A00B5E1EC /* NSView+Extension.swift */,
+				D19E8BB6277B4E6600E25222 /* NSViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				D124DA6A2774842900BB6064 /* FileDeleterPresenter.swift in Sources */,
 				D1D2E296276A180A00447672 /* UninstallerVC.swift in Sources */,
 				8C38B758276760560042B27E /* BorderedRoundedButton.swift in Sources */,
+				D19E8BB7277B4E6600E25222 /* NSViewController+Extension.swift in Sources */,
 				D1D2E29A276A24E300447672 /* CheckboxTableCell.swift in Sources */,
 				D114A3892779E47B00B115D1 /* UninstallerPresenter.swift in Sources */,
 				D18A304E2769F00100996221 /* NSButton+Extension.swift in Sources */,
