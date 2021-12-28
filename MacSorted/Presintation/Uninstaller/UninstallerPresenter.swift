@@ -17,14 +17,14 @@ final class UninstallerPresenter {
     
     weak var view: UninstallerViewInput!
     
-    private let appsManager: AppsManager
+    private let appsManager: AppsManagerProtocol
     
     private var appItems = [CheckboxTableCellModel]()
     private var filter = ""
     
     // MARK: Lifecycle
     
-    init(with appsManager: AppsManager) {
+    init(with appsManager: AppsManagerProtocol) {
         self.appsManager = appsManager
     }
 }

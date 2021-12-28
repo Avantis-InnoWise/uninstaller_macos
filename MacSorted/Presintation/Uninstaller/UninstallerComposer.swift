@@ -26,7 +26,7 @@ final class UninstallerComposer {
 }
 
 struct UninstallerInput {
-    let appsManager: AppsManager
+    let appsManager: AppsManagerProtocol
 }
 
 protocol UninstallerViewOutput: AnyObject {

@@ -1,7 +1,12 @@
 import Foundation
 import AppKit
 
-final class AppsManager {
+protocol AppsManagerProtocol {
+    func fetch(completion: @escaping ([App]) -> Void)
+    func uninstall(with locations: [URL], completion: (Error?) -> Void)
+}
+
+final class AppsManager: AppsManagerProtocol {
     // fetch browse the disk on another queue to find information
     // about what app are installed, and where did they write data
     func fetch(completion: @escaping ([App]) -> Void) {

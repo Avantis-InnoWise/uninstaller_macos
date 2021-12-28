@@ -26,7 +26,7 @@ final class FileDeleterComposer {
 }
 
 struct FileDeleterInput {
-    let fileManager: FilesManager
+    let fileManager: FilesManagerProtocol
 }
 
 protocol FileDeleterViewOutput: AnyObject {

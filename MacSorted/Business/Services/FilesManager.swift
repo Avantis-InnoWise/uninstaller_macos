@@ -1,6 +1,17 @@
 import Foundation
 
-final class FilesManager {
+protocol FilesManagerProtocol {
+    func findDuplicatedFiles(completion: @escaping ([File]) -> Void)
+    func findOldFiles(completion: @escaping ([File]) -> Void)
+    func getAllFiles(
+        in directory: String?,
+        with name: String,
+        completion: @escaping ([File]) -> Void
+    )
+    func deleteFile(_ filePath: String, completion: (Error?) -> Void)
+}
+
+final class FilesManager: FilesManagerProtocol {
     func findDuplicatedFiles(completion: @escaping ([File]) -> Void) {
         getAllFiles(in: FileManager.default.homeDirectoryForCurrentUser.path) { files in
             var duplicatedFiles = files

@@ -19,7 +19,7 @@ final class FileDeleterPresenter {
     
     weak var view: FileDeleterViewInput!
     
-    private let fileManager: FilesManager
+    private let fileManager: FilesManagerProtocol
     
     private var fileItems = [CheckboxTableCellModel]()
     private var filter = ""
@@ -27,7 +27,7 @@ final class FileDeleterPresenter {
     
     // MARK: Lifecycle
     
-    init(with fileManaer: FilesManager) {
+    init(with fileManaer: FilesManagerProtocol) {
         self.fileManager = fileManaer
     }
 }
@@ -133,7 +133,7 @@ private extension FileDeleterPresenter {
     
     func findFiles(filteredBy filter: String = "") {
         guard !filter.isEmpty || !shouldFilter else { return }
-        fileManager.getAllFiles(with: filter) { [weak self] files in
+        fileManager.getAllFiles(in: nil, with: filter) { [weak self] files in
             self?.updateModel(with: files)
         }
     }
