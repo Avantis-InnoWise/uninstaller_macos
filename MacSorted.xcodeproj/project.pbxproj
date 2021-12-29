@@ -18,7 +18,6 @@
 		D124DA6627747BCF00BB6064 /* CheckboxTableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124DA6527747BCF00BB6064 /* CheckboxTableCellModel.swift */; };
 		D124DA682774841000BB6064 /* FileDeleterComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124DA672774841000BB6064 /* FileDeleterComposer.swift */; };
 		D124DA6A2774842900BB6064 /* FileDeleterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124DA692774842900BB6064 /* FileDeleterPresenter.swift */; };
-		D174059E277C779A0014E6AA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D174059D277C779A0014E6AA /* Info.plist */; };
 		D18A304E2769F00100996221 /* NSButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A304D2769F00100996221 /* NSButton+Extension.swift */; };
 		D18A30502769F1DC00996221 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A304F2769F1DC00996221 /* GradientButton.swift */; };
 		D19E8BB7277B4E6600E25222 /* NSViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E8BB6277B4E6600E25222 /* NSViewController+Extension.swift */; };
@@ -291,7 +290,6 @@
 			files = (
 				8CFF5E1D275F80D100C71B9B /* Assets.xcassets in Resources */,
 				8CFF5E20275F80D100C71B9B /* Main.storyboard in Resources */,
-				D174059E277C779A0014E6AA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
